@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Add Blog {% endblock %}
+{% block content %}
+<style type="text/css">
+	.form-control:hover{
+		border: 1px solid lightskyblue;
+		outline: none;
+	}
+</style>
+<div class="container">
+	<div class="row mt-5 pt-5">
+		<div class="col-md-4">
+			<div class="card shadow">
+				<div class="card-body">
+					<h3 class="">Add Blog Post</h3>
+					<form method="POST">
+						{% csrf_token %}
+
+						{{forms | crispy}}
+
+						<button type="submit" class="btn btn-outline-primary my-2 float-right">Add Blog</button>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			{% for post in posts %}
+			<div class="card shadow mb-2">
+				<div class="card-body">
+					<div class="row">
+
+						<div class="col-md-4">
+							<img src="" alt="img">
+						</div>
+
+						<div class="col-md-8">
+							<small>{{post.date_created}}</small>
+							<small class="text-justify">{{post.author}}</small>
+							<hr>
+							<a class="h3" href="">{{post.title}}</a>
+							<p class="text-justify my-3">{{post.content}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	
+	</div>
+</div>
+
+{% endblock %}

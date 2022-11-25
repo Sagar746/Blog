@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Login {% endblock %}
+{% block content %}
+<style type="text/css">
+	.form-control:hover{
+		border: 1px solid lightskyblue;
+		outline: none;
+	}
+</style>
+<div class="container mx-auto">
+	<div class="row mt-5 pt-5">
+		<div class="col-md-4">
+			<div class="card shadow">
+				<div class="card-body">
+					<h3 class="">Login Form</h3>
+					<form method="POST">
+						{% csrf_token %}
+
+						{{form | crispy}}
+
+						<button type="submit" class="btn btn-outline-primary my-2 float-right">
+							Login
+						</button>
+						
+					</form>
+					<div class="text-center my-3">
+						<a href="{% url 'password_reset' %}">Forget Password?</a>
+					</div>
+					<div class="text-center">
+						<a href="{% url 'users-sign-up' %}" class="btn btn-success">Create an Account</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+{% endblock %}

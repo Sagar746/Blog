@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Login {% endblock %}
+{% block content %}
+<style type="text/css">
+	.form-control:hover{
+		border: 1px solid lightskyblue;
+		outline: none;
+	}
+</style>
+<div class="container">
+	<div class="row mt-5 pt-5">
+		<div class="col-md-4">
+			<div class="card shadow">
+				<div class="card-body">
+					<h3 class="">Logout Page</h3>
+					<hr>
+					<div class="alert alert-info mb-5">
+						You have been logged out.
+					</div>
+					<a class="alert alert-info" href="{% url 'users-login' %}">Login</a>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+{% endblock %}
